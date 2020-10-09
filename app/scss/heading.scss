@@ -1,0 +1,17 @@
+.heading {
+  text-align: center;
+
+  &__title {
+    margin: 0 0 35px;
+    color: $dark-blue;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 130%;
+  }
+
+  &__text {
+    max-width: 650px;
+    font-size: 23px;
+    line-height: 160%;
+  }
+}

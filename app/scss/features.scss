@@ -1,0 +1,34 @@
+.features {
+  padding: $header-height + 70px 0 120px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    margin-bottom: 35px;
+  }
+
+  &__slider {
+    padding: 0 $container-pad;
+  }
+}
+
+
+@media (max-width: 992px) {
+  $header-height: 86px;
+
+  .features {
+    padding: $header-height + 34px 0 92px;
+  }
+}
+
+@media (max-width: 767px) {
+  .features {
+    &__slider {
+      padding: 0;
+    }
+  }
+}

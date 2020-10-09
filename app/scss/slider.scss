@@ -1,0 +1,115 @@
+.slider {
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: $border-radius;
+    background-color: $yellow;
+  }
+
+  &__item {
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    position: relative;
+    padding: 50px 65px 50px 115px;
+    height: 360px;
+    border-radius: $border-radius;
+    background-color: $light-yellow;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 0 $yellow-shadow;
+
+
+    &-count {
+      position: absolute;
+      top: 32px;
+      left: -65px;
+      font-size: 200px;
+      font-weight: bold;
+      line-height: 1;
+      color: $violet;
+    }
+
+    &-label {
+      position: absolute;
+      top: -6px;
+      padding: 8px 15px;
+      background-color: $pink;
+      font-size: 18px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: $white;
+      box-shadow: 0 4px 0 #efe3c5;
+      border-radius: 0 0 4px 4px;
+    }
+
+    &-title {
+      margin-bottom: 20px;
+      font-size: 25px;
+      line-height: 130%;
+      color: $dark-blue;
+    }
+
+    &-text {
+      flex: 1 1 auto;
+      line-height: 160%;
+    }
+
+    &-link {
+      a {
+        position: relative;
+        padding-right: 45px;
+        font-weight: 700;
+        text-decoration: none;
+        color: $dark-blue;
+        transition: color 0.2s ease-in-out;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 4px;
+          right: 0;
+          width: 21px;
+          height: 15px;
+          background: url("../images/dest/icons/arrow.svg") no-repeat center / contain;
+        }
+
+        &:hover {
+          color: #9c69e2;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .slider {
+    &__container {
+      max-width: 682px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .slider {
+
+    &__container {
+      max-width: 100%;
+      border-radius: 0;
+    }
+
+    &__item {
+      padding: 40px 30px;
+
+      &-count {
+        display: none;
+      }
+
+      &-text {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

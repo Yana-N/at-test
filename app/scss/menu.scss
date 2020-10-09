@@ -1,0 +1,210 @@
+.menu {
+  $self: &;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__li {
+    margin-right: 47px;
+    color: $dark-blue;
+    font-size: 18px;
+    font-weight: 500;
+
+    &--parent {
+      position: relative;
+      padding-right: 18px;
+      transition: 0.2s;
+
+      &::after {
+        content: url("../images/dest/icons/arrow-small-down.svg");
+        position: absolute;
+        top: -3px;
+        right: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $violet-hover;
+      }
+    }
+
+    &--active {
+      color: $violet;
+
+      &::after {
+        content: url("../images/dest/icons/arrow-small-up.svg");
+        top: -3px;
+      }
+
+      #{$self}__link {
+        color: $violet;
+      }
+
+      #{$self}__submenu {
+        opacity: 1;
+        visibility: initial;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    color: $dark-blue;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.2s;
+
+    &:hover {
+      color: $violet;
+    }
+  }
+
+  &__submenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 36px;
+    right: -90px;
+    width: 170px;
+    background: $white;
+    padding: 24px;
+    list-style: none;
+    margin: 0;
+    border-radius: 10px;
+    border: 1px solid $violet;
+    box-shadow: 0 4px 0 $violet-shadow;
+    transition: .2s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 18px * 0.72;
+      height: 18px * 0.72;
+      background-color: $white;
+      top: -8px;
+      left: 66px;
+      border-left: 1px solid $violet;
+      border-top: 1px solid $violet;
+      z-index: 10;
+      transform: rotate(45deg);
+    }
+
+    &-li:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &-link {
+      padding: 12px 0;
+      font-size: 16px;
+      color: $dark-blue;
+      transition: 0.2s;
+
+      &:hover {
+        @extend #{$self}__link:hover;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .menu {
+    $self: &;
+
+    &__list {
+      flex-direction: column;
+    }
+
+    &__li {
+      margin-right: 0;
+      border-top: 1px solid #d6b9ff;
+
+      &:last-child {
+        border-bottom: 1px solid #d6b9ff;
+      }
+
+      &--parent {
+        padding-right: 0;
+
+        &::after {
+          content: "";
+          top: 30px;
+          right: 30px;
+          transform: rotate(0);
+          width: 11px;
+          height: 18px;
+          background: url("../images/dest/icons/arrow-open.svg") no-repeat center / contain;
+          transition: all .2s ease-in-out;
+        }
+      }
+
+      &--active {
+
+        &::after {
+          transform: rotate(90deg);
+        }
+
+        #{ $self }__link {
+          color: $dark-blue;
+        }
+
+        #{ $self }__submenu {
+          position: static;
+        }
+      }
+    }
+
+    &__link {
+      display: block;
+      padding: 26px 30px;
+      font-size: 27px;
+    }
+
+    &__submenu {
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 60px;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      border-top: 1px solid #d6b9ff;
+      background: #f9f4ff;
+
+      &::before {
+        content: none;
+      }
+
+      &-li:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &-link {
+        display: block;
+        padding: 20px 0;
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .menu {
+
+    &__li--parent::after {
+      right: 20px;
+    }
+
+    &__link {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}

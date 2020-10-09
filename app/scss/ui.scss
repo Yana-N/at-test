@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: $placeholder;
+}
+
+::selection {
+  background-color: $violet;
+  color: $white;
+}
+
+input, textarea {
+  outline: none;
+
+  &:focus:required:invalid {
+    border-color: red
+  }
+
+  &:required:valid {
+    border-color: green
+  }
+}
+
+body {
+  font-family: $roboto;
+  font-size: $fontsize;
+  font-weight: 400;
+  min-width: 320px;
+  position: relative;
+  line-height: 160%;
+  overflow-x: hidden;
+  color: $text;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1380px;
+  width: 100%;
+  padding: 0 $container-pad;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 990px;
+  }
+}
+
+@media (max-width: 670px) {
+  .container {
+    max-width: none;
+    padding: 0 20px;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 58px;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 160%;
+  color: $white;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &--md {
+    padding: 11px 28px;
+    font-size: 16px;
+  }
+
+  &--violet {
+    background-color: $violet;
+
+    &:hover {
+      background-color: $violet-hover;
+    }
+  }
+
+  &--yellow {
+    background-color: $yellow-btn;
+
+    &:hover {
+      background-color: $yellow-hover;
+    }
+  }
+}
+
+.overlay {
+  display: block;
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: transparent;
+  transition: all .2s ease;
+  opacity: 0;
+  pointer-events: none;
+
+  &--active {
+    opacity: 0.25;
+    pointer-events: all;
+  }
+}
